@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>toDo-List</h1>
+        
+        <div class="ajouter">
+            <input type="text" id="itemContent" placeholder="Add an Item">
+            <button id="add">Add Item</button>
+            <h2>items :</h2>
+        </div>
+        <hr>
+        <div id="items">
+        </div>
+    </div>
+    
+    <script>
+        const items = document.getElementById("items");
+        const itemContent = document.getElementById("itemContent");
+        const add = document.getElementById("add");
+
+        function additem(){
+            
+            if(itemContent.value=="" || itemContent.value.trim() == ""){
+                return;
+            }else{
+                const item = document.createElement("div");
+                const parag = document.createElement("p");
+                const suppItem = document.createElement("button");
+                suppItem.textContent = "Delete";
+                parag.innerText= itemContent.value;
+                item.setAttribute("id", "myitem");
+                item.appendChild(parag);
+                item.appendChild(suppItem);
+                items.appendChild(item);
+                itemContent.value = "";
+                suppItem.addEventListener("click", function(){
+                items.removeChild(item);
+
+            })
+            }
+        }
+        add.addEventListener("click", function(){
+            additem();
+        })
+        itemContent.addEventListener("keydown", function(e){
+            if(e.key === "Enter"){
+                additem();
+            }
+        })
+
+    </script>
+</body>
+</html>
