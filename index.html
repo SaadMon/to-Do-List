@@ -24,9 +24,6 @@
         const items = document.getElementById("items");
         const itemContent = document.getElementById("itemContent");
         const add = document.getElementById("add");
-<<<<<<< HEAD
-
-=======
         function saveitems(){
             let allitems = [];
             document.querySelectorAll("#items p").forEach(div=>{
@@ -50,33 +47,11 @@
                     saveitems();
             })
         }
->>>>>>> 8575c65 (add the reload function)
         function additem(){
             
             if(itemContent.value=="" || itemContent.value.trim() == ""){
                 return;
             }else{
-<<<<<<< HEAD
-                const item = document.createElement("div");
-                const parag = document.createElement("p");
-                const suppItem = document.createElement("button");
-                suppItem.textContent = "Delete";
-                parag.innerText= itemContent.value;
-                item.setAttribute("id", "myitem");
-                item.appendChild(parag);
-                item.appendChild(suppItem);
-                items.appendChild(item);
-                itemContent.value = "";
-                suppItem.addEventListener("click", function(){
-                items.removeChild(item);
-
-            })
-            }
-        }
-        add.addEventListener("click", function(){
-            additem();
-        })
-=======
                 createitem(itemContent.value)
                 itemContent.value = "";
                 saveitems();
@@ -92,7 +67,6 @@
 
 
         add.addEventListener("click", additem)
->>>>>>> 8575c65 (add the reload function)
         itemContent.addEventListener("keydown", function(e){
             if(e.key === "Enter"){
                 additem();
